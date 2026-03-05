@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Ritoz Brand Colors ─────────────────────────────── */
+    --navy:   #2D2D7F;   /* primary — logo circle */
+    --navy-dark: #1e1e5c; /* darker navy for hover/depth */
+    --navy-light: #3d3d9e; /* lighter navy */
+    --gold:   #C9A84C;   /* secondary — logo ring & leaf */
+    --gold-dark: #a8883a; /* darker gold */
+    --gold-light: #dfc278; /* lighter gold */
+    --ink:    #0f172a;
+    --muted:  #475569;
+    --light:  #f8fafc;
+    --border: #e2e8f0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-white text-slate-900 antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'DM Mono', monospace;
+  }
+
+  ::selection {
+    background-color: rgba(45, 45, 127, 0.15);
+    color: #0f172a;
+  }
+}
+
+@layer components {
+  .container-xl {
+    @apply max-w-7xl mx-auto px-6 lg:px-10;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.15em] font-mono;
+    color: var(--gold-dark);
+  }
+
+  /* Primary button — navy to navy-light gradient */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-sm
+           transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 20px rgba(45, 45, 127, 0.28);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 8px 28px rgba(45, 45, 127, 0.38);
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-sm
+           border transition-all duration-300;
+    border-color: var(--navy);
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-outline:hover {
+    background: rgba(45, 45, 127, 0.05);
+  }
+
+  /* Gold accent button */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-sm
+           transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.35);
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200 transition-all duration-300;
+  }
+
+  .card:hover {
+    border-color: rgba(45, 45, 127, 0.25);
+    box-shadow: 0 8px 32px rgba(45, 45, 127, 0.08);
+  }
+}
+
+@layer utilities {
+  /* Navy → gold gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gold-only gradient text (for accents) */
+  .text-gold {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle navy grid */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(45, 45, 127, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 45, 127, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Subtle navy dot pattern */
+  .bg-dot {
+    background-image: radial-gradient(rgba(45, 45, 127, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: rgba(45, 45, 127, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(45, 45, 127, 0.5); }
